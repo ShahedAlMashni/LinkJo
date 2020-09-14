@@ -1,15 +1,60 @@
 <% include templates/header.ejs %>
 
-<div class="container" style="margin: 2% auto">
-    <div class="card">
-        <div class="card-header">
-            <h4>Current Balance</h4>
+<div class="container">
+    <div class="row" style="margin-top: 20px">
+        <div class="col-12">
+                <h1 style="text-align: center">Current Balance:<i class="fa fa-bitcoin" style="padding: 10px"></i><%= amount %> bitlinks</h1>
         </div>
-        <div class="card-body">
-            <h1 style="text-align: center"><i class="fa fa-bitcoin" style="padding: 10px"></i>20 bitlinks</h1>
-        </div>
+    </div>
+    <div class="row" style="text-align: center;margin: 0 auto">
+        <% for (let i = 0 ; i < vouchers.length ; ++i) {%>
+            <div style="padding: 20px;" class="col-4">
+                <div class="coupon" style="margin: 0 auto;">
+                    <div class="containerCoupon">
+                        <h3><%=vouchers[i].shop_name %></h3>
+                    </div>
+                    <img src="<%= vouchers[i].image %>" alt="Avatar" style="width:100%;height: 150px">
+                    <div class="container" style="background-color:white">
+                        <h6><b><%= vouchers[i].percent %>% OFF YOUR PURCHASE</b></h6>
+                    </div>
+                    <div class="container">
+                        <p>Price: <span class="promo"><%= vouchers[i].price%> coins</span></p>
+                        <% if(amount >= vouchers[i].price){%>
+                        <button type="button" class="btn btn-primary" style="margin-bottom: 8px" >Redeem Voucher</button>
+                        <%}else{%>
+                            <button type="button" class="btn btn-secondary" style="margin-bottom: 8px" disabled >Redeem Voucher</button>
+                        <%}%>
+                    </div>
+                </div>
+
+            </div>
+        <% }%>
     </div>
 
 </div>
 
+<style>
+    .coupon {
+        margin: 0px;
+        border: 5px dotted #bbb; /* Dotted border */
+        width: 80%;
+        border-radius: 15px; /* Rounded border */
+        max-width: 600px;
+    }
+
+    .containerCoupon {
+        text-align: center;
+        background-color: #cecdcd;
+        padding: 5px;
+    }
+
+    .promo {
+        background: #ccc;
+        padding: 3px;
+    }
+
+    .expire {
+        color: red;
+    }
+</style>
 <% include templates/footer %>
