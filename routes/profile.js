@@ -1,10 +1,11 @@
 var express = require('express');
 var AWS = require("aws-sdk");
+var middleware = require('../middleware/middle');
 var router = express.Router();
 var docClient = new AWS.DynamoDB.DocumentClient();
 
 
-router.get('/:username', function(req, res, next) {
+router.get('/:username',middleware.isLoggedIn, function(req, res, next) {
     let username = req.params.username;
     let params = {
         TableName: "profile",
@@ -13,11 +14,10 @@ router.get('/:username', function(req, res, next) {
         }
     };
     docClient.get(params, function(err, data) {
-        if (err) {
-            console.error("Unable to add item. Error JSON:", JSON.stringify(err, null, 2));
+        if (err || !Object.keys(data).length) {
+            console.error("Unable to find item Error JSON:", JSON.stringify(err, null, 2));
         } else {
-            console.log("GetItem succeeded:", JSON.stringify(data, null, 2));
-            res.render('profile2',{ info: data.Item });
+            res.render('profile',{ info: data.Item });
         }
     });
 });
