@@ -1,0 +1,62 @@
+<% include templates/header.ejs %>
+<div class="container">
+    <div class="fb-profile row">
+        <img align="left" class="fb-image-lg" src=<%= info.cover_photo %> alt="Profile image example"/>
+        <div class="col-sm-4 col-12">
+            <div class="box" >
+                <img  class="fb-image-profile thumbnail" src=<%= info.profile_photo %> alt="Profile image example"/>
+            </div>
+            <div class="info">
+                <ul style=" list-style-type: none; margin-top: 7%;">
+                    <li class="list-item-profile"><i class="fa fa-user" style="padding: 10px"></i> <%= info.username %></li>
+                    <li class="list-item-profile"><i class="fa fa-address-card" style="padding: 10px"></i> <%= info.name %></li>
+                    <li class="list-item-profile"><i class="fa fa-birthday-cake" style="padding: 10px"></i><%= info.year %></li>
+                    <li class="list-item-profile" ><i class="fa fa-globe" style="padding: 10px"></i><%= info.country %></li>
+                </ul>
+            </div>
+        </div>
+        <div class="col-sm-8 col-12">
+            <div class="row" style="width: 100%">
+                <div class="card" style="width: 100%;">
+                    <div class="card-header">
+                        Biography
+                    </div>
+                    <div class="card-body">
+                        <p><%= info.biography %></p>
+                    </div>
+                </div>
+            </div>
+            <% if(info.interests){ %>
+            <div class="row" style="width: 100%;margin-top: 2%">
+                <div class="card" style="width: 100%;">
+                    <div class="card-header">
+                        Interests
+                    </div>
+                    <div class="card-body" style="font-size: 20px">
+                        <% for(var i=0; i < info.interests.length; i++) { %>
+                        <span class="badge badge-primary"><%= info.interests[i]%></span>
+                        <% }%>
+
+                    </div>
+                </div>
+            </div>
+            <% }%>
+
+            <% if(info.interests){ %>
+            <div class="row" style="width: 100%;margin-top: 2%">
+                <div class="card" style="width: 100%;">
+                    <div class="card-header">
+                        Badges
+                    </div>
+                    <div class="card-body" style="font-size: 20px">
+                        <% for(var i=0; i < info.badges.length; i++) { %>
+                        <img  height="64px" placement="bottom" style="cursor:pointer; margin: 5px;"  width="64px" src=<%= info.badges[i] %>>
+                        <% }%>
+                    </div>
+                </div>
+            </div>
+            <% }%>
+        </div>
+    </div>
+</div>
+<% include templates/footer %>
