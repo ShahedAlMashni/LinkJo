@@ -1,43 +1,133 @@
 <% include templates/header.ejs %>
-<div class="container">
-            <img src="images/logo.png" id="logo" alt="logo">
-            <nav>
-                <ul>
-                    <li><a href="events.html">Events</a></li>
-                    <li><a href="account.html">Account</a></li>
-                    <li><a href="forum.html">Forum</a></li>
-                </ul>
-            </nav>
+
+
+
+
+<div class="row">
+    <div class="column nature">
+        <div class="content">
+            <img src="https://images.unsplash.com/photo-1494548162494-384bba4ab999?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&w=1000&q=80"
+                alt="Mountains" style="width:100%">
+            <h4>Mountains</h4>
+            <p>Lorem ipsum dolor..</p>
         </div>
-    </header>
-
-
-
-    <div class="categories" id="mainwrapper">
-        <figure>
-            <a href="event_pages/entrepreneurship.html" target="_blank">
-                <img src="images/entrepreneurship.jpg" alt="technology" class="event_image">
-                <figcaption>Entrepreneurship</figcaption>
-            </a>
-        </figure>
-
-        <figure>
-            <a href="event_pages/tech.html" target="_blank">
-                <img src="images/technology.jpg" alt="technology" class="event_image">
-                <figcaption>Technology</figcaption>
-            </a>
-        </figure>
-        <figure>
-            <a href="event_pages/marathon.html" target="_blank">
-                <img src="images/marathon.jpg" alt="marathon" class="event_image">
-                <figcaption>Marathons</figcaption>
-            </a>
-        </figure>
-        <figure>
-            <img src="images/mamoon.jpg" alt="mamoon" class="event_image">
-            <figcaption>Mamoon</figcaption>
-        </figure>
+    </div>
+    <div class="column nature">
+        <div class="content">
+            <img src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=634&q=80"
+                alt="Lights" style="width:100%">
+            <h4>Lights</h4>
+            <p>Lorem ipsum dolor..</p>
+        </div>
+    </div>
+    <div class="column nature">
+        <div class="content">
+            <img src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=634&q=80"
+                alt="Nature" style="width:100%">
+            <h4>Forest</h4>
+            <p>Lorem ipsum dolor..</p>
+        </div>
     </div>
 
+    <div class="column cars">
+        <div class="content">
+            <img src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=634&q=80"
+                alt="Car" style="width:100%">
+            <h4>Retro</h4>
+            <p>Lorem ipsum dolor..</p>
+        </div>
+    </div>
+    <div class="column cars">
+        <div class="content">
+            <img src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=634&q=80"
+                alt="Car" style="width:100%">
+            <h4>Fast</h4>
+            <p>Lorem ipsum dolor..</p>
+        </div>
+    </div>
+    <div class="column cars">
+        <div class="content">
+            <img src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=634&q=80"
+                alt="Car" style="width:100%">
+            <h4>Classic</h4>
+            <p>Lorem ipsum dolor..</p>
+        </div>
+    </div>
 
+    <div class="column people">
+        <div class="content">
+            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcRTHUaeVCqaTeKEgV1LB5Vyp7aiw4QUggWiBA&usqp=CAU"
+                alt="People" style="width:100%">
+            <h4>Girl</h4>
+            <p>Lorem ipsum dolor..</p>
+        </div>
+    </div>
+    <div class="column people">
+        <div class="content">
+            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcSZ7LKCOjmI_FQ6mHuxYXmMg-BgV81G7cIgfw&usqp=CAU"
+                alt="People" style="width:100%">
+            <h4>Man</h4>
+            <p>Lorem ipsum dolor..</p>
+        </div>
+    </div>
+    <div class="column people">
+        <div class="content">
+            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcR6cLPaUserfoot3Itz2cEFIWpBX1aWuVjA_Q&usqp=CAU"
+                alt="People" style="width:100%">
+            <h4>Woman</h4>
+            <p>Lorem ipsum dolor..</p>
+        </div>
+    </div>
+</div>
+
+
+<script>
+    filterSelection("all") // Execute the function and show all columns
+    function filterSelection(c) {
+        var x, i;
+        x = document.getElementsByClassName("column");
+        if (c == "all") c = "";
+        // Add the "show" class (display:block) to the filtered elements, and remove the "show" class from the elements that are not selected
+        for (i = 0; i < x.length; i++) {
+            w3RemoveClass(x[i], "show");
+            if (x[i].className.indexOf(c) > -1) w3AddClass(x[i], "show");
+        }
+    }
+
+    // Show filtered elements
+    function w3AddClass(element, name) {
+        var i, arr1, arr2;
+        arr1 = element.className.split(" ");
+        arr2 = name.split(" ");
+        for (i = 0; i < arr2.length; i++) {
+            if (arr1.indexOf(arr2[i]) == -1) {
+                element.className += " " + arr2[i];
+            }
+        }
+    }
+
+    // Hide elements that are not selected
+    function w3RemoveClass(element, name) {
+        var i, arr1, arr2;
+        arr1 = element.className.split(" ");
+        arr2 = name.split(" ");
+        for (i = 0; i < arr2.length; i++) {
+            while (arr1.indexOf(arr2[i]) > -1) {
+                arr1.splice(arr1.indexOf(arr2[i]), 1);
+            }
+        }
+        element.className = arr1.join(" ");
+    }
+
+    // Add active class to the current button (highlight it)
+    var btnContainer = document.getElementById("myBtnContainer");
+    var btns = btnContainer.getElementsByClassName("btn");
+    for (var i = 0; i < btns.length; i++) {
+        btns[i].addEventListener("click", function () {
+            var current = document.getElementsByClassName("active");
+            current[0].className = current[0].className.replace(" active", "");
+            this.className += " active";
+        });
+    }
+</script>
 <% include templates/footer %>
