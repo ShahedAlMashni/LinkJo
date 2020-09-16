@@ -1,43 +1,95 @@
-<% include templates/header.ejs %>
-<div class="container">
-<table class="table">
-    <thead style="background-color: #bbbbbb">
-    <tr>
-        <th scope="col"></th>
-        <th scope="col">Information</th>
-    </tr>
-    </thead>
-    <tbody>
-    <tr>
-        <th scope="row">Organization</th>
-        <td>Jordan Olympiad In Informatics</td>
-    </tr>
-    <tr>
-        <th scope="row">Role</th>
-        <td>photographer</td>
-    </tr>
+<% include templates/header2.ejs %>
+<div class="container container-display">
+    <div class="row">
+        <div class="col-12">
+            <h1>
+                Jordanian Olympiad In Informatics
+            </h1>
+            <button class="btn btn-reg" onclick="window.location.href='/volunteer/register'">Register Now!</button>
+        </div>
+    </div>
+    <hr>
+    <div class="row">
+        <div class="col-12">
+            <div class="jumbotron jumbotron-fluid background-img">
+                <img src="https://scontent.famm7-1.fna.fbcdn.net/v/t1.0-9/89772959_2275119076129160_4754803361046331392_o.jpg?_nc_cat=108&_nc_sid=110474&_nc_ohc=gRmg4Hd3Uc0AX-ZDFLe&_nc_ht=scontent.famm7-1.fna&oh=5b9c786d69a391f12ffcb4b398813df7&oe=5F86DBCD">
+                </img>
+            </div>
+        </div>
+    </div>
+    <div class="row cards">
+        <div class="col-12">
+            <div class="card">
+                <h4 class="card-header">
+                    <i class="far fa-file-alt">
+                    </i>
+                    Information
+                </h4>
+                <div class="card-body">
+                    <table class="table">
+                        <tbody>
+                        <tr>
+                            <th scope="row">Organization</th>
+                            <td>Jordan Olympiad In Informatics</td>
+                        </tr>
+                        <tr>
+                            <th scope="row">Role</th>
+                            <td>photographer</td>
+                        </tr>
 
-    <tr>
-        <th scope="row">Day</th>
-        <td>September 20th 2020</td>
-    </tr>
-    <tr>
-        <th scope="row">Time</th>
-        <td>5:00pm - 7:00pm</td>
-    </tr>
-    <tr>
-        <th scope="row">Place</th>
-        <td>Princess Sumaya University for Technology</td>
-    </tr>
-    </tbody>
-</table>
-    <p>If you feel you are a good fit for the role:</p>
-    <button class="btn btn-primary">Register As a Volunteer</button>
+                        <tr>
+                            <th scope="row">Day</th>
+                            <td>September 20th 2020</td>
+                        </tr>
+                        <tr>
+                            <th scope="row">Time</th>
+                            <td>5:00pm - 7:00pm</td>
+                        </tr>
+                        <tr>
+                            <th scope="row">Place</th>
+                            <td>Princess Sumaya University for Technology</td>
+                        </tr>
+                        <tr>
+                            <th scope="row">Description</th>
+                            <td>The photographer will take photos of participants while they are working. He or she will also take photos at the closing cermony</td>
+                        </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="row cards">
+        <div class="col-12">
+            <div class="card">
+                <h4 class="card-header">
+                    <i class="far fa-comments">
+                    </i>
+                    Comments
+                </h4>
+                <div class="card-body">
+                    <blockquote>
+                        <p>
+                            What should we wear?
+                        </p>
+                        <footer class="blockquote-footer">
+                            <a href="/profile/donia">Donia</a>
+                        </footer>
+                    </blockquote>
+                    <hr>
+                    <blockquote>
+                        <p>
+                            We will provide all volunteers with T-shirts
+                        </p>
+                        <footer class="blockquote-footer">
+                            <a href="/profile/">Jordanian Olympiad In Informatics</a>
+                        </footer>
+                    </blockquote>
+                </div>
+            </div>
+        </div>
+    </div>
+    </hr>
 </div>
-
-<style>
-    .table{
-        margin-top: 50px;
-    }
-</style>
-<% include templates/footer %>
+</body>
+</html>

@@ -1,0 +1,77 @@
+<% include templates/header2.ejs %>
+
+
+<div class="container container-display">
+    <div class="row">
+        <div class="col-12">
+            <h1>
+                <%= events.category_name%>
+            </h1>
+        </div>
+    </div>
+    <hr>
+    <div class="row cards">
+        <div class="col-12">
+            <div class="card">
+                <h4 class="card-header">
+                    <i class="fas fa-bolt">
+                    </i>
+                    Future Events
+                </h4>
+                <div class="card-body">
+                    <table class="table">
+                        <tbody>
+                        <% for(let i = 0;i<events.future_events.length;++i){%>
+                        <tr>
+                            <td class="w-25">
+                                <img src="<%= events.future_events[i].image%>" class="img-fluid img-thumbnail" alt="Sheep">
+                            </td>
+                            <td><%= events.future_events[i].event_name%></td>
+                            <td><%= events.future_events[i].time%></td>
+                            <td><a class="btn btn-primary"  style="color: white" href="/event/item/<%=events.future_events[i].event_id%>">View More</a></td>
+                        </tr>
+                        <%}%>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="row cards">
+        <div class="col-12">
+            <div class="card">
+                <h4 class="card-header">
+                    <i class="fas fa-stopwatch">
+                    </i>
+                    Current Events
+                </h4>
+                <div class="card-body">
+                    <table class="table">
+                        <tbody>
+                        <% for(let i = 0;i<events.current_events.length;++i){%>
+                        <tr>
+                            <td class="w-25">
+                                <img src="<%= events.current_events[i].image %>" class="img-fluid img-thumbnail" alt="Sheep">
+                            </td>
+                            <td ><%= events.current_events[i].event_name %></td>
+                            <td><%= events.current_events[i].time %></td>
+                            <td><a class="btn btn-primary" style="color: white" href="/event/item/<%=events.current_events[i].event_id%>">View More</a></td>
+                        </tr>
+                        <%}%>
+                        </tbody>
+                    </table>
+                </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    </hr>
+</div>
+
+<style>
+    td{
+        vertical-align: middle !important;;
+    }
+</style>
+</body>
+</html>

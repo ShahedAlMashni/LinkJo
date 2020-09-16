@@ -1,9 +1,9 @@
-<% include templates/header.ejs %>
+<% include templates/header2.ejs %>
 
-<div class="container">
+<div class="container container-display">
     <div class="row" style="margin-top: 20px">
         <div class="col-12">
-                <h1 style="text-align: center">Current Balance:<i class="fa fa-bitcoin" style="padding: 10px"></i><%= amount %> bitlinks</h1>
+                <h1 style="text-align: center">Current Balance:<i class="fas fa-coins" style="padding: 10px"></i><%= amount %> bitlinks</h1>
         </div>
     </div>
     <div class="row" style="text-align: center;margin: 0 auto">
@@ -20,9 +20,11 @@
                     <div class="container">
                         <p>Price: <span class="promo"><%= vouchers[i].price%> coins</span></p>
                         <% if(amount >= vouchers[i].price){%>
-                        <button type="button" class="btn btn-primary" style="margin-bottom: 8px" >Redeem Voucher</button>
+                        <form class="deleteForm" action="/bitlink/vouchers/redeem/<%=vouchers[i].price%>" method="post" >
+                            <button type="submit" class="btn btn-primary" style="margin-bottom: 8px" >Redeem Voucher</button>
+                        </form>
                         <%}else{%>
-                            <button type="button" class="btn btn-secondary" style="margin-bottom: 8px" disabled >Redeem Voucher</button>
+                            <button type="submit" class="btn btn-secondary" style="margin-bottom: 8px" disabled >Redeem Voucher</button>
                         <%}%>
                     </div>
                 </div>

@@ -1,5 +1,6 @@
-<% include templates/header.ejs %>
-<div class="container">
+<% include templates/header2.ejs %>
+
+<div class="container ">
     <div class="fb-profile row">
         <img align="left" class="fb-image-lg" src=<%= info.cover_photo %> alt="Profile image example"/>
         <div class="col-sm-4 col-12">
@@ -42,15 +43,15 @@
                 </div>
             <% }%>
 
-            <% if(info.interests){ %>
-                <div class="row" style="width: 100%;margin-top: 2%">
+            <% if(info.badges){ %>
+                <div class="row" style="width: 100%;margin-top: 2%;margin-bottom: 2%">
                     <div class="card" style="width: 100%;">
                         <div class="card-header">
                             Badges
                         </div>
                         <div class="card-body" style="font-size: 20px">
                             <% for(var i=0; i < info.badges.length; i++) { %>
-                                <img  height="64px" placement="bottom" style="cursor:pointer; margin: 5px;"  width="64px" src=<%= info.badges[i] %>>
+                                <img data-toggle="tooltip" title="<%= info.badge_desc[i]%>"  class="override-img" height="64px" placement="bottom" style="cursor:pointer; margin: 5px;"  width="64px" src=<%= info.badges[i] %>>
                             <% }%>
                         </div>
                     </div>
@@ -59,4 +60,27 @@
         </div>
     </div>
 </div>
+
+<style>
+    .card-header{
+        background-color: #37474f;
+        color: #f2ffde;
+        border: none;
+    }
+    .card-body{
+        background-color: #eeedf2;
+    }
+    .card{
+        border: none;
+    }
+    .override-img{
+        width: 64px;
+    }
+</style>
+<script>
+    $(function () {
+        $('[data-toggle="tooltip"]').tooltip()
+    })
+</script>
+
 <% include templates/footer %>
